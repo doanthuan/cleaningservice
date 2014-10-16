@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h2>Job Assigned</h2>
-        <p>Hi {{$teamName}} Team</p>
+		<h2>MaidSavvy Job Assigned</h2>
+        <p>Hi {{$teamName}}</p>
         <p>
-            One job has been assigned to your team. The information listed below as:
+            A job has been assigned to your team. The information listed below as:
         </p>
 
         @include('emails.job.job-info')

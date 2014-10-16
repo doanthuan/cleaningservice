@@ -57,7 +57,7 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-1">
+            <div class="col-sm-7 col-sm-offset-1">
                 <div class="row text-center">
                     <?php if(!empty($_SESSION['error_zip'])) { echo "<p style='color: red;'>". $_SESSION['error_zip'] . "</p>"; }  ?>
                 </div>
@@ -143,7 +143,7 @@
                 <div class="form-group">
                     {{Form::label('service_type', 'Type of Service', array('class' => 'col-sm-4 control-label'))}}
                     <div class="col-sm-8">
-                        {{Form::select('service_type', \App\Models\ServiceType::lists('st_name', 'st_id'),
+                        {{Form::select('service_type', \App\Models\ServiceType::select('st_id',\DB::raw('CONCAT(st_name, ": $", st_price, " Flat Rate") as full_name'))->lists('full_name', 'st_id'),
                         null, array('class' => 'form-control'))}}
                     </div>
                 </div>
@@ -180,7 +180,8 @@
                 </div>
 
                 <div class="form-group">
-                    @foreach(\App\Models\ServiceExtra::lists('se_name','se_id') as $key => $value)
+                <?php $seList = \App\Models\ServiceExtra::select('se_id',\DB::raw('CONCAT(se_name, " +$", se_price) as full_name'))->lists('full_name','se_id'); ?>
+                    @foreach( $seList as $key => $value)
                     <div class="col-sm-offset-4 col-sm-8">
                         <div class="checkbox">
                             <label>
@@ -200,7 +201,7 @@
 
 
                 <div class="form-group">
-                    <div class="col-sm-5"><h3>STEP 5: SELECT PAYMENT</h3></div>
+                    <div class="col-sm-5"><h3>STEP 5: PAYMENT</h3></div>
                     <div class="col-sm-7"><div class="form-step-heading"></div></div>
                 </div>
 
@@ -228,7 +229,7 @@
 
                 <div class="form-group">
                     {{Form::label('expires_on', 'Expires on', array('class' => 'col-sm-4 control-label'))}}
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         {{Form::select('card-expiry-month', array(
                         '1' => '01 - January',
                         '2' => '02 - February',
@@ -245,7 +246,7 @@
                         ),
                         null, array('class' => 'form-control', 'data-stripe' => "exp-month"))}}
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         {{Form::select('card-expiry-year', array(
                         '2014' => '2014',
                         '2015' => '2015',
@@ -292,23 +293,27 @@
                     <div class="crp-ft">
                         <i class="text-color fa fa-check fa-3x"></i>
                         <h4>Insured Services</h4>
-                        <p>You're in good company when you choose Maids in Black. Rest assured that we are fully insured.</p>
+                        <p>You're in good company when you choose Maids Savvy. Rest assured that we are fully insured.</p>
                     </div>
+                    <br>
                     <div class="crp-ft">
                         <i class="text-color fa fa-smile-o fa-3x"></i>
                         <h4>Friendly Service</h4>
                         <p>Fast and friendly customer service folks. Our average response time for emails is now 14 minutes.</p>
                     </div>
+                    <br>
                     <div class="crp-ft">
                         <i class="text-color fa fa-leaf fa-3x"></i>
                         <h4>We Provide Supplies</h4>
                         <p>We got this! Our team partners bring their own supplies and vacuum and honor special requests.</p>
                     </div>
+                    <br>
                     <div class="crp-ft">
                         <i class="text-color fa fa-rocket fa-3x"></i>
                         <h4>Speedy Confirmation</h4>
                         <p>Book and receive a confirmation within 30 minutes during normal booking hours from 8:30am to midnight!</p>
                     </div>
+                    <br>
                     <div class="crp-ft">
                         <i class="text-color fa fa-shopping-cart fa-3x"></i>
                         <h4>Safe Shopping Guarantee</h4>
@@ -472,35 +477,6 @@
         calTotalAmount();
     });
 
-    function validateTakeTime()
-    {
-        var datetime = $('#take_time').val();
-        var datetimeSegments = datetime.split(":");
-        var hourSegments = datetimeSegments[0].split(" ");
-        var hour = hourSegments[1];
-        var minSegments = datetimeSegments[1].split(" ");
-        var min = minSegments[0];
-        var midday = minSegments[1];
-        if(midday == 'AM')
-        {
-            if(hour < 8){
-                return false;
-            }
-            else if(hour == 8 && min < 30){
-                return false;
-            }
-
-        }
-        else if(midday == 'PM'){
-            if(hour > 5){
-                return false;
-            }
-            else if(hour == 5 && min > 30){
-                return false;
-            }
-        }
-        return true;
-    }
 
     var serviceTypes = {{json_encode(\App\Models\ServiceType::lists('st_price', 'st_id'))}};
     var serviceFrequencies = {{json_encode(\App\Models\ServiceFrequency::lists('sf_discount', 'sf_id'))}};

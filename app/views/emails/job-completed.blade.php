@@ -5,14 +5,17 @@
 </head>
 <body>
 <h2>Job Completed</h2>
-<p>Hi {{$job->customer_name}}</p>
+<p>Hi {{$job->customer_name}},</p>
 <p>
-    Your job has been completed. Please let us know how your team did. Your feedback is important, so feel free to shoot
-    us an email with more detailed feedback as well. If you any problem at all, we'll work to make it right.
-</p>
+    Your job has been completed! Your feedback is very important to us and we go to great lengths to make sure we did a good enough job with your home. Please take a 30 seconds and click on a smiley face. It will provide feedback to our team members and give you an opportunity to say how they did.
+    </p>
+    <p>
+	Also, feel free to shoot us an email with more detailed feedback as well. If you have any problems at all, we'll work to make it right.
+    </p>
 
 <p>
-    Thanks again!
+    Thanks Again!<br>
+    MaidSavvy
 </p>
 
 <p>

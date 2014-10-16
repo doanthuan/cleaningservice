@@ -7,8 +7,9 @@ class JobComment implements \Goxob\Core\Block\Grid\RendererInterface{
     {
         $comment = $row->comment;
         if(strlen($comment) > 30){
-            return \Str::limit($comment, 30).'...';
+            $comment = \Str::limit($comment, 30).'...';
         }
-        return $comment;
+        $link = '<a href="javascript:popupComment(\''.$row->job_id.'\')">Details</a>';
+        return $comment.$link;
     }
 }

@@ -110,10 +110,12 @@ class Job {
     public static function saveJob($customer, $input)
     {
         $job = new \App\Models\Job();
-        $input['customer_id'] = $customer->customer_id;
-        $input['customer_email'] = $customer->email;
-        $input['customer_phone'] = $customer->phone;
-        $input['customer_name'] = $customer->first_name.' '.$customer->last_name;
+        if(isset($customer)) {
+            $input['customer_id'] = $customer->customer_id;
+            $input['customer_email'] = $customer->email;
+            $input['customer_phone'] = $customer->phone;
+            $input['customer_name'] = $customer->first_name . ' ' . $customer->last_name;
+        }
         if(!$job->validate($input))
         {
             if(!isset($input['job_id']) || empty($input['job_id'])){//case: add new
@@ -126,7 +128,7 @@ class Job {
         return $job;
     }
 
-    private static function makePayment($customer, $job, $input)
+    public static function makePayment($customer, $job, $input)
     {
         if(isset($input['stripeToken']))
         {
@@ -158,7 +160,7 @@ class Job {
         }
     }
 
-    private static function sendBookingEmail($password, $job)
+    public static function sendBookingEmail($password, $job)
     {
         $data = static::prepareJobInfoForEmail($job);
         $data['password'] = $password;

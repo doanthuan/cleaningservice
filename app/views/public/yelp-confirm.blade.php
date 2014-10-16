@@ -10,17 +10,16 @@
 <div class="wrapper"> <!-- wrapper -->
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-8 col-sm-offset-2">
                 <h2>Thank you for feedback!</h2>
                 <hr>
-                <!-- START PRIVACY POLICY CODE -->
-                <strong>What information do we collect?</strong> <br />
+                <p>We take reviews very seriously at MaidSavvy because it is the best way for us to ensure amazing service to all of our customers. If there is anything we can do to improve your cleaning, please let us know through our <a href="http://maidsavvy.com/contact-us">contact page</a></p>
+                
+                <p>Our mission is to provide you the best cleaning and amazing customer service. Unfortunately there are many companies who don't share our philosophy. Online reviews help let others know how we put you first. </p>
+                
+                <p>We would love if you would let others know about MaidSavvy by writing a quick review on yelp! <a href="http://yelp.com"><b>Please Click Here</b></a></p>
 
-                We collect information from you when you place an order or fill out a form.  <br /><br />
-
-                When ordering or registering on our site, as appropriate, you may be asked to enter your: name, e-mail address, mailing address, phone number or credit card information. You may, however, visit our site anonymously.
-
-
+		<p>Thanks,<br>MaidSavvy Team</p>
             </div>
         </div>
     </div>

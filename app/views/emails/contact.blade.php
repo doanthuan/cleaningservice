@@ -10,7 +10,7 @@
     Email: {{$emailAddress}}<br/>
 </p>
 <p>
-    {{$content}}
+    Message: {{$content}}
 </p>
 
 

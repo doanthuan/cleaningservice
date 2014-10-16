@@ -60,7 +60,6 @@ THE SOFTWARE.
             useMinutes: true,
             useSeconds: false,
             useCurrent: true,
-            hourStepping: 1,
             minuteStepping: 1,
             minDate: new pMoment({ y: 1900 }),
             maxDate: new pMoment().add(100, "y"),
@@ -199,10 +198,6 @@ THE SOFTWARE.
                 var rInterval = picker.options.minuteStepping;
                 picker.date.minutes((Math.round(picker.date.minutes() / rInterval) * rInterval) % 60).seconds(0);
             }
-            if (picker.options.hourStepping !== 1) {
-                var rInterval = picker.options.hourStepping;
-                picker.date.hours((Math.round(picker.date.hours() / rInterval) * rInterval) % 24).minutes(30);
-            }
         },
 
         getPickerInput = function () {
@@ -228,7 +223,6 @@ THE SOFTWARE.
             if (eData.dateUseseconds !== undefined) picker.options.useSeconds = eData.dateUseseconds;
             if (eData.dateUsecurrent !== undefined) picker.options.useCurrent = eData.dateUsecurrent;
             if (eData.dateMinutestepping !== undefined) picker.options.minuteStepping = eData.dateMinutestepping;
-            if (eData.dateHourstepping !== undefined) picker.options.hourStepping = eData.dateHourstepping;
             if (eData.dateMindate !== undefined) picker.options.minDate = eData.dateMindate;
             if (eData.dateMaxdate !== undefined) picker.options.maxDate = eData.dateMaxdate;
             if (eData.dateShowtoday !== undefined) picker.options.showToday = eData.dateShowtoday;
@@ -463,7 +457,7 @@ THE SOFTWARE.
 
         fillHours = function () {
             pMoment.lang(picker.options.language);
-            var table = picker.widget.find('.timepicker .timepicker-hours table'), html = '', current, i, j, step = picker.options.hourStepping;
+            var table = picker.widget.find('.timepicker .timepicker-hours table'), html = '', current, i, j;
             table.parent().hide();
             if (picker.use24hours) {
                 current = 0;
@@ -628,7 +622,7 @@ THE SOFTWARE.
 
 		actions = {
 		    incrementHours: function () {
-		        checkDate("add", "hours", picker.options.hourStepping);
+		        checkDate("add", "hours", 1);
 		    },
 
 		    incrementMinutes: function () {
@@ -640,7 +634,7 @@ THE SOFTWARE.
 		    },
 
 		    decrementHours: function () {
-		        checkDate("subtract", "hours", picker.options.hourStepping);
+		        checkDate("subtract", "hours", 1);
 		    },
 
 		    decrementMinutes: function () {

@@ -9,6 +9,11 @@ class DashboardController extends \Goxob\Core\Controller\AdminBaseController {
 
     public function anyIndex()
     {
+        $user = \Goxob\Core\Helper\Auth::user();
+    	if($user->role_id !== 1){
+            return Redirect::to('admin/dashboard/team');
+    	}	
+        
         Toolbar::title(trans('Dashboard'));
 
         return View::make('admin.dashboard.index');

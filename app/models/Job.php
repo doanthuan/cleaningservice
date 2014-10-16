@@ -125,9 +125,9 @@ class Job extends Model{
                 if(!$giftcard){
                     return $this->setErrors('Discount code is invalid');
                 }
-                if($giftcard->balance <= 0){
-                    return $this->setErrors('This discount code has no credits');
-                }
+//                if($giftcard->balance <= 0){
+//                    return $this->setErrors('This discount code has no credits');
+//                }
             }
             return true;
         }
@@ -226,9 +226,9 @@ class Job extends Model{
             $serviceExtras = \App\Models\ServiceExtra::whereIn('se_id', $serviceExtras)->get();
             if($serviceExtras){
                 foreach($serviceExtras as $se){
-                    $seList[] = $se->se_name;
+                    $seList[] = $se->se_name . ' +$'.$se->se_price;
                 }
-                $seList = implode(",", $seList);
+                $seList = implode(", ", $seList);
                 return $seList;
             }
             return '';

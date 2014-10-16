@@ -4,6 +4,7 @@
 
 <div class="wrapper"> <!-- wrapper -->
     <div class="container">
+       <div class="col-sm-10 col-sm-offset-1">
         <div class="row">
             <div class="col-sm-12">
                 <h3>Where We Serve</h3>
@@ -15,15 +16,12 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <h1 class="text-center animated fadeInDown">Book a trusted cleaner in 60 seconds</h1>
-                <h3 class="text-center animated fadeInDown">Because who doesn't like to come home to a clean home?</h3>
-                <div class="text-center actions animated fadeInDown delay2">
-                    <a class="btn btn-color btn-lg" href="booking.php">Book Now</a>
-                </div>
-                <!--<a href="index-alt.html" class="alt-index hidden-xs">
-                  <img src="img/browser.png" alt="...">
-                </a>-->
+                <h2 class="text-center animated fadeInDown">Because who doesn't like to come home to a clean home?</h2>
+                <p>Give us a call or book online, we serve all of the Charlotte area. Enter your zip code below to find out if we can make your home beautiful.</p>
+                @include('public.partials.zip-row')
+                
             </div>
+        </div>
         </div>
     </div><!-- // Container -->
 

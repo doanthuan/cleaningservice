@@ -1,0 +1,42 @@
+
+.form-wrapper{
+    padding: 20px;
+    background-color: #eee;
+    border: 1px solid #aeaeae;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.form-wrapper h3{
+    font-size: 20px;
+}
+
+.form-step-heading {
+    height: 10px;
+    width: 100%;
+    border-top: 1px solid #aeaeae;
+    margin-top: 30px;
+}
+
+.btn-xlarge {
+    padding: 15px 25px;
+    font-size: 25px; //change this to your desired size
+    line-height: normal;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: #34445F;
+    border-color: #27354D;
+}
+.btn-dark:hover{
+    color: #fff;
+    background-color: #27354D;
+    border-color: #27354D;
+    text-decoration: none;
+}
+

@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="pull-left hidden-xs">
-                    <h1>MaidSavvy: Charlotte's Cleaning Services &amp; House Cleaning</h1>
+                    <h1>Maid and Cleaning Services in Charlotte NC</h1>
                 </div>
                 <div class="pull-right">
                     <p>

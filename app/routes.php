@@ -22,6 +22,8 @@ Route::post('/check-zip-code', '\App\Controllers\PublicController@checkZipCode')
 Route::get('/yelp-confirm', '\App\Controllers\PublicController@getYelpConfirm');
 Route::get('/test', '\App\Controllers\PublicController@getTest');
 
+Route::get('/city/{cityname}', '\App\Controllers\PublicController@landingpage');
+
 /*
 |--------------------------------------------------------------------------
 | Customers
@@ -79,64 +81,26 @@ Route::post('admin/login', '\App\Controllers\Admin\AuthenController@postLogin');
 Route::get('admin/logout', '\App\Controllers\Admin\AuthenController@logout');
 
 
-/*
-|--------------------------------------------------------------------------
-| Admin Teams
-|--------------------------------------------------------------------------
-*/
+/*Admin Teams*/
 Route::controller('admin/team', '\App\Controllers\Admin\TeamController');
 
-
-/*
-|--------------------------------------------------------------------------
-| Admin Customers
-|--------------------------------------------------------------------------
-*/
+/*Admin Customers*/
 Route::controller('admin/customer', '\App\Controllers\Admin\CustomerController');
 
-
-/*
-|--------------------------------------------------------------------------
-| Admin Service Type
-|--------------------------------------------------------------------------
-*/
+/*Admin Service Type*/
 Route::controller('admin/service-type', '\App\Controllers\Admin\ServiceTypeController');
 
-/*
-|--------------------------------------------------------------------------
-| Admin Service Frequency
-|--------------------------------------------------------------------------
-*/
+/*Admin Service Frequency*/
 Route::controller('admin/service-frequency', '\App\Controllers\Admin\ServiceFrequencyController');
 
-
-/*
-|--------------------------------------------------------------------------
-| Admin Service Extra
-|--------------------------------------------------------------------------
-*/
+/*Admin Service Extra*/
 Route::controller('admin/service-extra', '\App\Controllers\Admin\ServiceExtraController');
 
-
-/*
-|--------------------------------------------------------------------------
-| Admin Customers
-|--------------------------------------------------------------------------
-*/
+/*Admin Customers*/
 Route::controller('admin/dashboard', '\App\Controllers\Admin\DashboardController');
 
-
-/*
-|--------------------------------------------------------------------------
-| Admin Zip Codes
-|--------------------------------------------------------------------------
-*/
+/*Admin Zip Codes*/
 Route::controller('admin/zip-code', '\App\Controllers\Admin\ZipCodeController');
 
-
-/*
-|--------------------------------------------------------------------------
-| Admin GiftCard
-|--------------------------------------------------------------------------
-*/
+/*Admin GiftCard*/
 Route::controller('admin/gift-card', '\App\Controllers\Admin\GiftCardController');

@@ -99,3 +99,13 @@ Route::filter('admin.auth', function()
 {
     if (!\Goxob\Core\Helper\Auth::check()) return Redirect::guest('admin/login');
 });
+
+Route::filter('restrictPermission', function($route)
+{
+    $user = \Goxob\Core\Helper\Auth::user();
+    
+    if($user->role_id !== 1){
+        return Redirect::to('/admin');
+    }	
+});
+

@@ -13,10 +13,10 @@
     <div class="container">
         <div class="col-sm-2">
             <ul class="list-group">
-                <li class="list-group-item">
+            	<li class="list-group-item">
                     <a href="{{url('customer/profile')}}">My Account</a>
                 </li>
-                <li class="list-group-item">
+            	<li class="list-group-item">
                     <a href="{{url('customer/job-history')}}">Job History</a>
                 </li>
                 <li class="list-group-item">

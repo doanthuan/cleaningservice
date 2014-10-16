@@ -3,11 +3,11 @@
 <meta charset="utf-8">
 <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Charlotte's premier cleaning/maid service. Our online booking system and flat rate pricing takes the headache out of finding your trusted cleaning service.">
+<meta name="description" content="We are the premier cleaning/maid service in Charlotte NC. Our online booking system and flat rate pricing takes the headache out of cleaning.">
 <meta name="author" content="">
 <link rel="shortcut icon" href="{{url('img/favicon.html')}}">
 
-<title>MaidSavvy: Charlotte's Cleaning Services &amp; House Cleaning</title>
+<title>Maid and Cleaning Services in Charlotte NC</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -16,7 +16,6 @@
 {{ HTML::style('css/color-styles.css') }}
 {{ HTML::style('css/ui-elements.css') }}
 {{ HTML::style('css/custom.css') }}
-{{ HTML::style('css/mCustomScrollbar.css') }}
 
 <!-- Resources -->
 {{ HTML::style('css/animate.css') }}

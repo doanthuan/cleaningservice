@@ -28,6 +28,8 @@ class PublicController extends BaseController {
 	public function index()
 	{
 		return View::make('public.index');
+			//->nest('content', 'public.partials.zip-row')
+			//->nest('content', 'public.partials.guarantee-row');
 	}
 
     public function booking()
@@ -37,17 +39,29 @@ class PublicController extends BaseController {
 
     public function faqs()
     {
-        return View::make('public.faqs');
+        return View::make('public.faqs');//->nest('content', 'public.partials.zip-sidebar');
+    }
+
+    public function aboutUs()
+    {
+        return View::make('public.about-us');
     }
 
     public function locations()
     {
-        return View::make('public.locations');
+        return View::make('public.locations');//->nest('content', 'public.partials.zip-row');
     }
 
     public function pricing()
     {
         return View::make('public.pricing');
+        	//->nest('content', 'public.partials.zip-sidebar')
+        	//->nest('content2', 'public.partials.zip-row');
+    }
+    
+    public function landingpage($cityname) {
+    	$data['city'] = ucfirst($cityname);
+	return View::make('public.landingpage', $data);
     }
 
     public function contactUs()

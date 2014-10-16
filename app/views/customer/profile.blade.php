@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="form-wrapper1">
+	<p>This is the information we currently have on file for your account. Please call to make updates so we can make sure we show up to the right address</p>
     {{ Form::model($customer, array('method' => 'post', 'url' => 'customer/update-info', 'class' => 'form-horizontal', 'id' => 'book-form')) }}
 
     @include('layouts.partials.message')

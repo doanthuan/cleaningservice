@@ -19,8 +19,6 @@ class JobController extends AdminController {
         $user = \Goxob\Core\Helper\Auth::user();
         if($user->role_id == 1){
             Toolbar::buttons(array(Toolbar::BUTTON_CREATE, Toolbar::BUTTON_DELETE)) ;
-        }
-        else{
             Toolbar::buttons(array(Toolbar::BUTTON_CREATE)) ;
         }
 
@@ -274,5 +272,40 @@ class JobController extends AdminController {
         return Redirect::to('admin/job/frequency-jobs');
     }
 
+    public function postRecurringJob()
+    {
+        $input = Input::all();
+        $jobId = $input['job_id'];
 
+        $job = \App\Models\Job::find($jobId);
+        if(!$job){
+            return Redirect::back()->withErrors('Could not find job')->withInput();
+        }
+
+        $customer = \App\Models\Customer::find($job->customer_id);
+        if(!$customer){
+            return Redirect::back()->withErrors('Could not find customer of this job')->withInput();
+        }
+
+        $jobAttrs = $job->getAttributes();
+        $input = array_merge($jobAttrs, $input);
+        unset($input['job_id']);
+
+        /*
+        |--------------------------------------------------------------------------
+        | save job
+        |--------------------------------------------------------------------------
+        */
+        $job = \App\Helpers\Job::saveJob($customer, $input);
+        if(!$job){
+            return Redirect::back()->withErrors(\App\Helpers\Job::getErrors())->withInput();
+        }
+
+        $job->status = \App\Models\Job::STATUS_ASSIGNED;
+        $job->save();
+
+        \App\Helpers\Job::sendBookingEmail('', $job);
+
+        return Redirect::to('admin/job')->with('success', 'Job has been created!');
+    }
 }

@@ -1242,7 +1242,7 @@ a.carousel-arrow-next {
 }
 .ltgrey-bg .large-text {
 	font-size:24px;
-	line-height:50px;
+	line-height:45px;
 	letter-spacing:-0.5px;
 }
 .faces-bg {
@@ -1254,18 +1254,18 @@ a.carousel-arrow-next {
 	border-top: 1px solid #eee;
 }
 .faces-bg h3 {
-	color:#848484;
+	color:#202020;
 	font-weight:800;
 }
 .faces-bg p {
-	font-size:18px;
-	color:#7a7a7a;
+	font-size:17px;
+	color:#3a3a3a;
 }
 .faces-bg li {
 	line-height:38px;
 	font-size:20px;
 	font-weight:bold;
-	color:#7a7a7a;
+	color:#3a3a3a;
 }
 .ul-none {
 	list-style-type: none;
@@ -1386,6 +1386,7 @@ a.carousel-arrow-next {
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
+	margin-top:-65px;
 }
 .house-bg-inside {
 	background-color: #485773;

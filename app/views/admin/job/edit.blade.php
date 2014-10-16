@@ -86,7 +86,7 @@
 <div class="form-group">
     {{Form::label('service_type', 'Type of Service', array('class' => 'col-sm-2 control-label'))}}
     <div class="col-sm-6">
-        {{Form::select('service_type', \App\Models\ServiceType::lists('st_name', 'st_id'),
+        {{Form::select('service_type', \App\Models\ServiceType::select('st_id',\DB::raw('CONCAT(st_name, ": $", st_price, " Flat Rate") as full_name'))->lists('full_name', 'st_id'),
         null, array('class' => 'form-control'))}}
     </div>
 </div>
@@ -125,8 +125,8 @@
 <div class="form-group">
 
                     
-
-    @foreach(\App\Models\ServiceExtra::lists('se_name','se_id') as $key => $value)
+    <?php $seList = \App\Models\ServiceExtra::select('se_id',\DB::raw('CONCAT(se_name, " +$", se_price) as full_name'))->lists('full_name','se_id'); ?>
+    @foreach( $seList as $key => $value)
     <div class="col-sm-offset-2 col-sm-6">
         <div class="checkbox">
             <label>
