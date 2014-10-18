@@ -121,7 +121,7 @@ class Job extends Grid{
             $html = '<button type="button" class="btn btn-sm btn-success" onclick="listItemTask(\'cb'.$i.'\',
             \'updateJobStatus\', \''.\App\Models\Job::STATUS_PAID_TEAM.'\')">Paid Team</button>';
         }
-        elseif($item->status == \App\Models\Job::STATUS_PAID_TEAM){
+        elseif($item->status == \App\Models\Job::STATUS_PAID_TEAM && $item->service_frequency == 1){
             $html = $html.'&nbsp;'.'<button type="button" class="btn btn-sm btn-warning" onclick="showRecurringJob(\''.$item->job_id.'\')">Recurring Job</button>&nbsp;';
 
         }

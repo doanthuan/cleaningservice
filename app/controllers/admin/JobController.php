@@ -19,7 +19,7 @@ class JobController extends AdminController {
         $user = \Goxob\Core\Helper\Auth::user();
         if($user->role_id == 1){
             Toolbar::buttons(array(Toolbar::BUTTON_CREATE, Toolbar::BUTTON_DELETE)) ;
-            Toolbar::buttons(array(Toolbar::BUTTON_CREATE)) ;
+            //Toolbar::buttons(array(Toolbar::BUTTON_CREATE)) ;
         }
 
         return View::make('admin.job.index');
@@ -296,10 +296,9 @@ class JobController extends AdminController {
         | save job
         |--------------------------------------------------------------------------
         */
-        $job = \App\Helpers\Job::saveJob($customer, $input);
-        if(!$job){
-            return Redirect::back()->withErrors(\App\Helpers\Job::getErrors())->withInput();
-        }
+        //$job = \App\Helpers\Job::saveJob($customer, $input);
+        $job->setData($input);
+        $job->save();
 
         $job->status = \App\Models\Job::STATUS_ASSIGNED;
         $job->save();

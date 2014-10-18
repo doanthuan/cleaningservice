@@ -226,7 +226,7 @@ class Job extends Model{
             $serviceExtras = \App\Models\ServiceExtra::whereIn('se_id', $serviceExtras)->get();
             if($serviceExtras){
                 foreach($serviceExtras as $se){
-                    $seList[] = $se->se_name . ' +$'.$se->se_price;
+                    $seList[] = $se->se_name ;
                 }
                 $seList = implode(", ", $seList);
                 return $seList;
